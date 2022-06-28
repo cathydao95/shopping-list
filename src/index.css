@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.automated-list {
+  padding-bottom: 25px;
+}
+
+.selected-items {
+  display: flex;
+  justify-content: space-between;
+}
