@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [input, setInput] = useState("");
-  const [listItems, setListItems] = useState([]);
+  const [suggestedList, setSuggestedList] = useState([]);
 
   // function to set handle input change
   function handleChange(event) {
@@ -14,10 +14,10 @@ function App() {
   useEffect(() => {
     fetch(`https://api.frontendeval.com/fake/food/${input}`)
       .then((res) => res.json())
-      .then((data) => setListItems(data));
+      .then((data) => setSuggestedList(data));
   }, [input]);
 
-  console.log(listItems);
+  console.log(suggestedList);
 
   return (
     <div>
@@ -26,7 +26,7 @@ function App() {
         <div className="input-container">
           <input type="text" onChange={handleChange} />
           {/* pass list items from API to Autocomplete Component*/}
-          <Autocomplete listItems={listItems} />
+          <Autocomplete suggestedList={suggestedList} />
         </div>
       </div>
     </div>
